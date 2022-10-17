@@ -20,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('api/zip-codes/{zip_code}', [ZipCodeController::class, 'getZipCode']);
+Route::get('zip-codes/{zip_code}', [ZipCodeController::class, 'webZipCode']);

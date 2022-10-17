@@ -35,4 +35,4 @@ Respuesta en formato Json [/api/zip-codes/{zip-code}](127.0.0.1:8000/api/zip-cod
 * Se genera seeder con base al archivo CSV ```database/seeders/data_main.csv```
 * Se desarrolla función principal en controlador ```app/Http/Controllers/ZipCodeController.php```
 * Para finalizar, se hace configuración de los modelos utilizando ELOQUENT ORM
- para mejorar la relacion de la API con la base datos.
+ para mejorar la relacion de la API con la base datos

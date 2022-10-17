@@ -21,6 +21,9 @@
         </style>
     </head>
     <body class="antialiased">
+        
+        <h1>Zip Codes as JSON</h1>
         <h3>{{$zip_code}}</h3>
+
     </body>
 </html>
