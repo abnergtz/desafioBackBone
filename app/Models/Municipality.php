@@ -27,4 +27,9 @@ class Municipality extends Model
         return $this->hasMany(ZipCode::class);
     }
 
+    public function getNameAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
 }

@@ -55,6 +55,10 @@ class ZipCodeSeeder extends Seeder
         while (($data = fgetcsv($csvFile, 1000, ";")) !== FALSE) {
             if (!$firstline) {
 
+                $data = array_map(function($value) {
+                    return $this->quitar_tildes($value);
+                }, $data);
+
                 if (!SettlementType::where('name', $data[2])->exists()) {
                     SettlementType::create([
                         'name' => $data[2],
@@ -103,5 +107,12 @@ class ZipCodeSeeder extends Seeder
         }
    
         fclose($csvFile);
+    }
+
+    public function quitar_tildes($cadena) {
+        $no_permitidas= array ("á","é","í","ó","ú","Á","É","Í","Ó","Ú","ñ","Ñ","ü","Ü");
+        $permitidas= array ("a","e","i","o","u","A","E","I","O","U","n","N","u","U");
+        $texto = str_replace($no_permitidas, $permitidas ,$cadena);
+        return $texto;
     }
 }

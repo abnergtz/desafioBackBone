@@ -34,8 +34,13 @@ class ZipCode extends Model
         return $this->belongsTo(FederalEntity::class, 'federal_entity_id', 'id');
     }
 
-    public function settlement()
+    public function settlements()
     {
         return $this->hasMany(Settlement::class, 'zip_code_id', 'id')->with('settlement_type');
+    }
+
+    public function getLocalityAttribute($value)
+    {
+        return strtoupper($value);
     }
 }
